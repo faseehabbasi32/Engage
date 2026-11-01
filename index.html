@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Engage">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#861E51">
-<title>Engage – Visit Prototype (iPhone v5)</title>
+<title>Engage v8</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -787,23 +787,14 @@ input,textarea{-webkit-user-select:text;user-select:text}
 #phone{width:375px !important;height:812px !important;border-radius:0 !important;box-shadow:none !important}
 #rst,.homeind{display:none !important}
 .br2{cursor:pointer}
-
-/* ===== v2: real iOS status bar, full-bleed canvas, room for host watermark ===== */
-#stage{height:var(--H,812px) !important}
-#phone{height:var(--H,812px) !important}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* header only: real iOS status bar */
 .sb>*{display:none !important}
 .sbimg img{display:none !important}
-.nav{height:58px !important}
-.syncb{bottom:78px !important}
-
-
-
-.vsh .dvf{padding-bottom:20px}
 .sth::before{content:"";position:absolute;left:0;right:0;top:0;height:50px;background:linear-gradient(#861E51,rgba(134,30,81,0));border-radius:0;pointer-events:none;z-index:0}
 .sth .sb,.sth .stb,.sth h1{position:relative;z-index:1}
 .sth .stb,.sth h1{position:absolute}
 .sth .sb{color:#fff}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -1562,7 +1553,7 @@ render();
 </script>
 <script>
 (function(){const st=document.getElementById('stage');
-function fit(){const w=window.innerWidth,h=window.innerHeight,k=w/375;document.documentElement.style.setProperty('--H',((h-61)/k)+'px');st.style.transform='scale('+k+')'}
+function fit(){const w=window.innerWidth,h=window.innerHeight,k=Math.min(w/375,h/812);st.style.transform='translate('+((w-375*k)/2)+'px,0) scale('+k+')'}
 fit();addEventListener('resize',fit);addEventListener('orientationchange',()=>setTimeout(fit,200));
 })();
 </script>
