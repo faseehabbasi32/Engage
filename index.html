@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="Engage">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#861E51">
-<title>Engage v9</title>
+<title>Engage v10</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1559,7 +1559,7 @@ render();
 </script>
 <script>
 (function(){const st=document.getElementById('stage');
-function fit(){const w=window.innerWidth,q=new URLSearchParams(location.search).get('h'),sh=Math.max(screen.height,screen.width),full=Math.abs(w-Math.min(screen.width,screen.height))<3,h=q?+q:(full?Math.max(window.innerHeight,sh):window.innerHeight),k=w/375;document.documentElement.style.setProperty('--H',(h/k)+'px');st.style.transform='scale('+k+')'}
+function fit(){const w=window.innerWidth,q=new URLSearchParams(location.search).get('h'),sh=Math.max(screen.height,screen.width),full=Math.abs(w-Math.min(screen.width,screen.height))<3,h=q?+q:(full?Math.max(window.innerHeight,sh-52):window.innerHeight),k=w/375;document.documentElement.style.setProperty('--H',(h/k)+'px');st.style.transform='scale('+k+')'}
 fit();addEventListener('resize',fit);addEventListener('orientationchange',()=>setTimeout(fit,200));
 })();
 </script>
